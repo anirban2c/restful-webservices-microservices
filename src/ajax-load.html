@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <style type="text/css">
+    .highlight {
+      background-color: yellow
+    }
+
+    .highlight2 {
+      background-color: green
+    }
+  </style>
+
+  <script>
+    $(document).ready(function () {
+      $('#loadButton').click(function () {
+        $('#externalContent').load("demo.txt", function (responseTxt, statusTxt, xhr) {
+
+          if (statusTxt == "success")
+            alert("External content loaded successfully!");
+          if (statusTxt == "error")
+            alert("Error: " + xhr.status + ": " + xhr.statusText);
+
+        });
+      })
+    })
+
+
+
+  </script>
+
+</head>
+
+<body>
+  <div id="externalContent">
+    <h1>Will be replaced by external content</h1>
+  </div>
+  <button id="loadButton">Load External Content</button>
+</body>
+
+</html>
